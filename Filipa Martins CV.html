@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Filipa Martins</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+:root {
+  --blue: #0000FF;
+  --cream: #F0EEE9;
+  --black: #000000;
+  --white: #ffffff;
+  --hero-bg: #F0EEE9;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--cream);
+  color: var(--black);
+  max-width: 680px;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+/* ── HERO ─────────────────────────────────────── */
+.hero {
+  background: var(--hero-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 28px 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg-text {
+  position: absolute;
+  bottom: -20px;
+  left: -10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(80px, 22vw, 160px);
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0,0,255,0.08);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -4px;
+}
+
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.hero-badge {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--black);
+  padding: 6px 12px;
+  border-radius: 2px;
+}
+
+.hero-year {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: rgba(0,0,0,0.25);
+  letter-spacing: 2px;
+}
+
+.hero-main { margin-top: 48px; }
+
+.hero-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(0,0,0,0.35);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.hero-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: clamp(48px, 13vw, 82px);
+  color: var(--blue);
+  line-height: 0.92;
+  letter-spacing: -1px;
+  margin-bottom: 4px;
+}
+
+.hero-name span {
+  color: var(--blue);
+  display: block;
+  font-weight: 600;
+}
+
+.hero-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  margin-bottom: 32px;
+}
+
+.hero-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(0,0,0,0.1);
+}
+
+.hero-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(0,0,0,0.45);
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.hero-summary {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(0,0,0,0.55);
+  line-height: 1.8;
+  max-width: 480px;
+  margin-bottom: 40px;
+}
+
+.hero-summary strong {
+  color: var(--black);
+  font-weight: 500;
+}
+
+.hero-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-contact {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: rgba(0,0,0,0.4);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.hero-contact:hover { color: var(--black); }
+
+.contact-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+}
+
+.hero-scroll {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.2);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.scroll-arrow {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.scroll-arrow span {
+  display: block;
+  width: 1px;
+  background: var(--blue);
+  margin: 0 auto;
+  animation: scrollPulse 1.5s ease infinite;
+}
+
+.scroll-arrow span:nth-child(1) { height: 8px; animation-delay: 0s; }
+.scroll-arrow span:nth-child(2) { height: 12px; animation-delay: 0.15s; }
+.scroll-arrow span:nth-child(3) { height: 8px; animation-delay: 0.3s; }
+
+@keyframes scrollPulse {
+  0%,100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+/* ── NAV ──────────────────────────────────────── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--cream);
+  border-top: 1px solid var(--black);
+  border-bottom: 1px solid var(--black);
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.nav::-webkit-scrollbar { display: none; }
+
+.nav-btn {
+  flex-shrink: 0;
+  padding: 16px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.3);
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.nav-btn.active {
+  color: var(--black);
+  border-bottom-color: var(--blue);
+}
+
+/* ── SECTIONS ─────────────────────────────────── */
+.section { display: none; }
+.section.active { display: block; }
+
+/* ── EXPERIENCE ───────────────────────────────── */
+.exp-list { padding: 0; }
+
+.exp-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.exp-item:hover { background: rgba(0,0,255,0.02); }
+
+.exp-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 24px 28px;
+  gap: 16px;
+}
+
+.exp-left { flex: 1; }
+
+.exp-index {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.exp-role {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--black);
+  line-height: 1.3;
+  margin-bottom: 3px;
+}
+
+.exp-company {
+  font-size: 12px;
+  color: rgba(0,0,0,0.45);
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+.exp-date {
+  font-size: 11px;
+  color: rgba(0,0,0,0.3);
+  letter-spacing: 0.5px;
+}
+
+.exp-toggle {
+  width: 28px; height: 28px;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+  margin-top: 2px;
+}
+
+.exp-item.open .exp-toggle {
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.exp-toggle svg {
+  width: 12px; height: 12px;
+  fill: rgba(0,0,0,0.4);
+  transition: all 0.3s;
+}
+
+.exp-item.open .exp-toggle svg {
+  fill: white;
+  transform: rotate(45deg);
+}
+
+.exp-detail {
+  display: none;
+  padding: 0 28px 24px;
+}
+
+.exp-item.open .exp-detail { display: block; }
+
+.exp-bullets {
+  list-style: none;
+  margin-bottom: 14px;
+}
+
+.exp-bullets li {
+  font-size: 13px;
+  color: rgba(0,0,0,0.6);
+  line-height: 1.7;
+  padding: 5px 0 5px 18px;
+  position: relative;
+}
+
+.exp-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 6px; height: 1px;
+  background: var(--blue);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 2px;
+  border: 1px solid rgba(0,0,0,0.12);
+  color: rgba(0,0,0,0.45);
+}
+
+.tag.blue {
+  background: var(--blue);
+  color: white;
+  border-color: var(--blue);
+}
+
+/* ── EDUCATION ────────────────────────────────── */
+.edu-section { padding: 32px 28px; }
+
+.edu-item {
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.edu-item:first-child { padding-top: 0; }
+.edu-item:last-child { border-bottom: none; }
+
+.edu-number {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: rgba(0,0,255,0.06);
+  line-height: 1;
+  margin-bottom: -8px;
+}
+
+.edu-degree {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--black);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.edu-school {
+  font-size: 12px;
+  color: var(--blue);
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+.edu-date {
+  font-size: 11px;
+  color: rgba(0,0,0,0.3);
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+.edu-desc {
+  font-size: 13px;
+  color: rgba(0,0,0,0.55);
+  line-height: 1.7;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.cert-pill {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 10px 12px;
+  border-radius: 2px;
+  line-height: 1.4;
+}
+
+.lang-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  font-size: 13px;
+}
+
+.lang-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.lang-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lang-bar {
+  width: 80px; height: 2px;
+  background: rgba(0,0,0,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.lang-bar-fill {
+  height: 100%;
+  background: var(--blue);
+  border-radius: 2px;
+}
+
+.lang-label {
+  font-size: 10px;
+  color: rgba(0,0,0,0.35);
+  letter-spacing: 0.5px;
+}
+
+/* ── SKILLS ───────────────────────────────────── */
+.skills-section { padding: 28px 28px 40px; }
+
+.skill-block {
+  margin-bottom: 36px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+
+.skill-block:last-child { border-bottom: none; margin-bottom: 0; }
+
+.skill-block-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 18px;
+}
+
+.skill-block-items { display: flex; flex-direction: column; gap: 10px; }
+
+.skill-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.skill-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--black);
+  min-width: 180px;
+  flex-shrink: 0;
+}
+
+.skill-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(0,0,0,0.08);
+  position: relative;
+  overflow: visible;
+}
+
+.skill-line-fill {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  height: 3px;
+  background: var(--blue);
+  border-radius: 2px;
+  transition: width 0.6s ease;
+}
+
+.skill-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-chip {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 7px 14px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 2px;
+  color: rgba(0,0,0,0.6);
+  background: transparent;
+}
+
+.lang-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.lang-card {
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 2px;
+  padding: 16px 12px;
+  text-align: center;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.lang-card-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  color: var(--blue);
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.lang-card-full {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--black);
+  line-height: 1.3;
+}
+
+.lang-card-level {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  color: rgba(0,0,0,0.35);
+  font-weight: 300;
+}
+
+/* ── STORY ────────────────────────────────────── */
+.story-section { padding: 40px 28px; }
+
+.story-kicker {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 24px;
+}
+
+.story-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(28px, 7vw, 40px);
+  color: var(--black);
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 32px;
+}
+
+.story-headline em {
+  color: var(--blue);
+  font-style: normal;
+}
+
+.story-p {
+  font-size: 14px;
+  color: rgba(0,0,0,0.6);
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.story-p strong {
+  color: var(--black);
+  font-weight: 500;
+}
+
+.story-pull {
+  background: var(--black);
+  color: var(--white);
+  padding: 28px 24px;
+  margin: 32px 0;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.story-pull::before {
+  content: '"';
+  position: absolute;
+  top: -20px;
+  right: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 120px;
+  font-weight: 900;
+  color: var(--blue);
+  opacity: 0.3;
+  line-height: 1;
+}
+
+.story-pull p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--white);
+  position: relative;
+  z-index: 1;
+}
+
+.cta-block {
+  background: var(--blue);
+  padding: 32px 24px;
+  border-radius: 2px;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cta-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  color: var(--white);
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.cta-sub {
+  font-size: 12px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+}
+
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  color: var(--blue);
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  border-radius: 2px;
+  align-self: flex-start;
+  transition: opacity 0.2s;
+}
+
+.cta-link:hover { opacity: 0.9; }
+
+/* ── SECTION HEADERS ──────────────────────────── */
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 32px 28px 0;
+}
+
+.section-h {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 28px;
+  letter-spacing: -1px;
+  color: var(--black);
+}
+
+.section-count {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 1px;
+}
+
+/* ── ANIMATIONS ───────────────────────────────── */
+.section.active > * {
+  animation: fadeIn 0.35s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  
+
+  <div class="hero-top">
+    <div class="hero-badge">Open to work</div>
+    <div class="hero-year">2026</div>
+  </div>
+
+  <div class="hero-main">
+    <div class="hero-label">Portfolio · Lisbon, Portugal</div>
+    <div class="hero-name">
+      Filipa<span>Martins</span>
+    </div>
+    <div class="hero-title-row">
+      <div class="hero-line"></div>
+      <div class="hero-title">Product Manager | Production & Creative Leadership</div>
+      <div class="hero-line"></div>
+    </div>
+    <p class="hero-summary">
+      <strong>10+ years</strong> bridging creative vision and operational execution — now bringing that cross-functional instinct into tech. I understand users because <strong>I've been one.</strong> On film sets. In hospitality. Across global productions.
+    </p>
+    <div class="hero-contacts">
+      <a href="mailto:filipa.m.work@gmail.com" class="hero-contact">
+        <span class="contact-dot"></span>filipa.m.work@gmail.com
+      </a>
+      <a href="tel:+351914919212" class="hero-contact">
+        <span class="contact-dot"></span>+351 914 919 212
+      </a>
+      <a href="https://www.linkedin.com/in/filiparmartins/" target="_blank" class="hero-contact">
+        <span class="contact-dot"></span>linkedin.com/in/filiparmartins
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-arrow">
+      <span></span><span></span><span></span>
+    </div>
+    Scroll to explore
+  </div>
+</div>
+
+<!-- ── NAV ── -->
+<div class="nav">
+  <button class="nav-btn active" onclick="showTab('exp',this)">Experience</button>
+  <button class="nav-btn" onclick="showTab('edu',this)">Education</button>
+  <button class="nav-btn" onclick="showTab('skills',this)">Skills</button>
+  <button class="nav-btn" onclick="showTab('story',this)">My Story</button>
+</div>
+
+<!-- ── EXPERIENCE ── -->
+<div class="section active" id="exp">
+  <div class="section-header">
+    <div class="section-h">Experience</div>
+
+  </div>
+  <div class="exp-list" style="margin-top:20px">
+
+    <div class="exp-item open" onclick="toggleExp(this)">
+      <div class="exp-summary">
+        <div class="exp-left">
+          
+          <div class="exp-role">Creative Producer | Production Manager</div>
+          <div class="exp-company">Freelance · Lisbon</div>
+          <div class="exp-date">Jun 2018 – Dec 2025</div>
+        </div>
+        <div class="exp-toggle">
+          <svg viewBox="0 0 14 14"><path d="M7 1v12M1 7h12"/></svg>
+        </div>
+      </div>
+      <div class="exp-detail">
+        <ul class="exp-bullets">
+          <li>Managed the full product lifecycle for diverse digital content projects, consistently delivering on-time and within budget</li>
+          <li>Translated what clients wanted into clear plans, keeping budgets tight, and aligning clients, creatives, and technical teams</li>
+          <li>Juggled multiple projects at once with tight deadlines, making things happen even when resources were limited</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item" onclick="toggleExp(this)">
+      <div class="exp-summary">
+        <div class="exp-left">
+          
+          <div class="exp-role">Photographer | Content Creator | Location Scout</div>
+          <div class="exp-company">Freelance · London & Lisbon</div>
+          <div class="exp-date">Jan 2014 – Dec 2025</div>
+        </div>
+        <div class="exp-toggle">
+          <svg viewBox="0 0 14 14"><path d="M7 1v12M1 7h12"/></svg>
+        </div>
+      </div>
+      <div class="exp-detail">
+        <ul class="exp-bullets">
+          <li>Helped global brands and production companies create visual content that works — scouting locations, following briefs, shooting photos</li>
+          <li>Ensured creative vision translated into something practical for film, advertising, and digital platforms</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Mr. Wonderful</span>
+          <span class="tag">Ramax</span>
+          <span class="tag">SpotaHome</span>
+          <span class="tag">Masaj</span>
+          <span class="tag">League of Rebels</span>
+          <span class="tag">SurFilms</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item" onclick="toggleExp(this)">
+      <div class="exp-summary">
+        <div class="exp-left">
+          
+          <div class="exp-role">Production Assistant | Advertising, Film & TV</div>
+          <div class="exp-company">Freelance · Lisbon</div>
+          <div class="exp-date">Jun 2018 – Nov 2023</div>
+        </div>
+        <div class="exp-toggle">
+          <svg viewBox="0 0 14 14"><path d="M7 1v12M1 7h12"/></svg>
+        </div>
+      </div>
+      <div class="exp-detail">
+        <ul class="exp-bullets">
+          <li>Supported high-budget film and ad productions — coordinating between departments and solving problems before they became bigger issues</li>
+          <li>Managed equipment and schedules so shoots stayed on time and on budget</li>
+          <li>Projects: BBC's Walking with Dinosaurs, Fast & Furious 10, Vampire Academy, Lovely Dark and Deep</li>
+          <li>Brands: Lidl, Peugeot, Heineken, C&A, Vogue, Harpers Bazaar, Tom Tailor, Numero Tokyo, Carling, Omo, S Oliver and others</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item" onclick="toggleExp(this)">
+      <div class="exp-summary">
+        <div class="exp-left">
+          
+          <div class="exp-role">Creative Production Manager</div>
+          <div class="exp-company">99ads · Lisbon</div>
+          <div class="exp-date">Nov 2023 – Dec 2024</div>
+        </div>
+        <div class="exp-toggle">
+          <svg viewBox="0 0 14 14"><path d="M7 1v12M1 7h12"/></svg>
+        </div>
+      </div>
+      <div class="exp-detail">
+        <ul class="exp-bullets">
+          <li>Orchestrated up to 12 concurrent brand projects, maintaining a 100% on-time delivery rate under high-pressure deadlines</li>
+          <li>Implemented Agile Scrum/Kanban methodologies, accelerating delivery cycles and significantly reducing production errors</li>
+          <li>Acted as connective point between designers, copywriters, video makers and clients — translating briefs into clear deliverables</li>
+          <li>Identified workflow bottlenecks and redesigned internal processes for faster shipping and fewer revision cycles</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Agile / Scrum</span>
+          <span class="tag">Kanban</span>
+          <span class="tag">Cross-functional</span>
+          <span class="tag">Stakeholder Mgmt</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item" onclick="toggleExp(this)">
+      <div class="exp-summary">
+        <div class="exp-left">
+          
+          <div class="exp-role">Production Assistant</div>
+          <div class="exp-company">Prinz Productions · Lisbon</div>
+          <div class="exp-date">Jan 2019 – Oct 2021</div>
+        </div>
+        <div class="exp-toggle">
+          <svg viewBox="0 0 14 14"><path d="M7 1v12M1 7h12"/></svg>
+        </div>
+      </div>
+      <div class="exp-detail">
+        <ul class="exp-bullets">
+          <li>Handled logistics of photo and video shoots of international teams — keeping things on schedule and fixing problems on set</li>
+          <li>Coordinated between photographers, directors, and clients, managing rentals and locations within budget</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item" onclick="toggleExp(this)">
+      <div class="exp-summary">
+        <div class="exp-left">
+          
+          <div class="exp-role">Photographer & Digital Marketing Assistant</div>
+          <div class="exp-company">Scorpion Shoes (Uniled) · London</div>
+          <div class="exp-date">Aug 2017 – Jun 2018</div>
+        </div>
+        <div class="exp-toggle">
+          <svg viewBox="0 0 14 14"><path d="M7 1v12M1 7h12"/></svg>
+        </div>
+      </div>
+      <div class="exp-detail">
+        <ul class="exp-bullets">
+          <li>Aligned visual content strategy with user personas and campaign KPIs — an early experience translating business goals into creative output</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item" onclick="toggleExp(this)">
+      <div class="exp-summary">
+        <div class="exp-left">
+          
+          <div class="exp-role">Front Desk & Guest Experience</div>
+          <div class="exp-company">Dover Castle Hostel · London</div>
+          <div class="exp-date">Mar 2015 – Aug 2017</div>
+        </div>
+        <div class="exp-toggle">
+          <svg viewBox="0 0 14 14"><path d="M7 1v12M1 7h12"/></svg>
+        </div>
+      </div>
+      <div class="exp-detail">
+        <ul class="exp-bullets">
+          <li>Managed high-volume front-of-house operations, resolving complex guest issues in real time</li>
+          <li>Handled bookings, payments, complaints, and coordination between reception, housekeeping, and maintenance</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item" onclick="toggleExp(this)">
+      <div class="exp-summary">
+        <div class="exp-left">
+          
+          <div class="exp-role">Team Leader</div>
+          <div class="exp-company">Benugo · London</div>
+          <div class="exp-date">Apr 2012 – Jun 2015</div>
+        </div>
+        <div class="exp-toggle">
+          <svg viewBox="0 0 14 14"><path d="M7 1v12M1 7h12"/></svg>
+        </div>
+      </div>
+      <div class="exp-detail">
+        <ul class="exp-bullets">
+          <li>Directed daily operations for a high-volume restaurant in London, managing a team of 15</li>
+          <li>Responsible for operations, performance management, onboarding new staff, and service quality</li>
+          <li>Completed formal training in leadership and staff development</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── EDUCATION ── -->
+<div class="section" id="edu">
+  <div class="section-header">
+    <div class="section-h">Education</div>
+  </div>
+  <div class="edu-section">
+
+    <div class="edu-item">
+      
+      <div class="edu-degree">Product Management & AI Bootcamp</div>
+      <div class="edu-school">AllWomen</div>
+      <div class="edu-date">Feb 2026 – Apr 2026 · Completed</div>
+      <p class="edu-desc">Agile methodologies, product strategy, user research, roadmapping, and Generative AI integration in product workflows.</p>
+      <div class="tags" style="margin-top:12px">
+        <span class="tag blue">Completed Apr 2026</span>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      
+      <div class="edu-degree">BA Photography</div>
+      <div class="edu-school">University of the Arts London — London College of Communication</div>
+      <div class="edu-date">2014 – 2017 · London</div>
+      <p class="edu-desc">A photography degree that went far beyond the camera — critical theory, conceptual thinking, and analysing how technology and culture shape the world we live in.</p>
+    </div>
+
+    <div class="edu-item">
+      
+      <div class="edu-degree">Science — Nutrition (3 years completed)</div>
+      <div class="edu-school">Atlântica University</div>
+      <div class="edu-date">2007 – 2010 · Portugal</div>
+      <p class="edu-desc">Rigorous scientific training spanning data analysis, research methods, human behaviour, and systems thinking — the analytical foundation I bring to every complex problem.</p>
+    </div>
+
+    <div style="margin-top:32px">
+      <div class="skill-group-label" style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(0,0,0,0.25);margin-bottom:14px;display:flex;align-items:center;gap:10px;">Certifications <span style="flex:1;height:1px;background:rgba(0,0,0,0.06);display:block"></span></div>
+      <div class="cert-grid">
+        <div class="cert-pill">Google AI Essentials</div>
+        <div class="cert-pill">Social Media Marketing I & II</div>
+        <div class="cert-pill">Online Marketing Fundamentals</div>
+        <div class="cert-pill">Leadership</div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<!-- ── SKILLS ── -->
+<div class="section" id="skills">
+  <div class="section-header">
+    <div class="section-h">Skills</div>
+  </div>
+  <div class="skills-section">
+
+    <div class="skill-block">
+      <div class="skill-block-label">Product</div>
+      <div class="lang-cards" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="lang-card"><div class="lang-card-full">Product Strategy</div></div>
+        <div class="lang-card"><div class="lang-card-full">Roadmapping</div></div>
+        <div class="lang-card"><div class="lang-card-full">User Research</div></div>
+        <div class="lang-card"><div class="lang-card-full">Agile / Scrum / Kanban</div></div>
+        <div class="lang-card"><div class="lang-card-full">Prioritisation</div></div>
+        <div class="lang-card"><div class="lang-card-full">Product Market Fit</div></div>
+      </div>
+    </div>
+
+    <div class="skill-block">
+      <div class="skill-block-label">Leadership & Ops</div>
+      <div class="lang-cards" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="lang-card"><div class="lang-card-full">Stakeholder Management</div></div>
+        <div class="lang-card"><div class="lang-card-full">Cross-functional Collaboration</div></div>
+        <div class="lang-card"><div class="lang-card-full">Team Leadership</div></div>
+        <div class="lang-card"><div class="lang-card-full">Operations Management</div></div>
+        <div class="lang-card"><div class="lang-card-full">Budget Management</div></div>
+        <div class="lang-card"><div class="lang-card-full">Critical Thinking</div></div>
+      </div>
+    </div>
+
+    <div class="skill-block">
+      <div class="skill-block-label">Tools & AI</div>
+      <div class="lang-cards" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="lang-card"><div class="lang-card-full">GenAI Tools</div></div>
+        <div class="lang-card"><div class="lang-card-full">Jira</div></div>
+        <div class="lang-card"><div class="lang-card-full">Figma</div></div>
+        <div class="lang-card"><div class="lang-card-full">Miro</div></div>
+        <div class="lang-card"><div class="lang-card-full">Notion</div></div>
+        <div class="lang-card"><div class="lang-card-full">Google Analytics</div></div>
+      </div>
+    </div>
+
+    <div class="skill-block">
+      <div class="skill-block-label">Languages</div>
+      <div class="lang-cards">
+        <div class="lang-card">
+          <div class="lang-card-name">PT</div>
+          <div class="lang-card-full">Portuguese</div>
+          <div class="lang-card-level">Native</div>
+        </div>
+        <div class="lang-card">
+          <div class="lang-card-name">EN</div>
+          <div class="lang-card-full">English</div>
+          <div class="lang-card-level">Full Professional</div>
+        </div>
+        <div class="lang-card">
+          <div class="lang-card-name">ES</div>
+          <div class="lang-card-full">Spanish</div>
+          <div class="lang-card-level">Professional</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── STORY ── -->
+<div class="section" id="story">
+  <div class="story-section">
+
+    <div class="story-kicker">Why I'm moving into tech</div>
+    <div class="story-headline">
+      I stopped asking <em>"how?"</em><br>and started asking <em>"why?"</em>
+    </div>
+
+    <p class="story-p">For over a decade, I worked the way a lot of creative professionals do — project to project, client to client, always moving. I led restaurant teams in London. I directed photo and film productions across Portugal and the UK. I worked on projects ranging from <strong>BBC documentaries to Fast & Furious 10.</strong></p>
+
+    <div class="story-pull">
+      <p>I became the person teams called when they needed someone who could translate between creative vision and operational reality.</p>
+    </div>
+
+    <p class="story-p">But somewhere in the middle of juggling simultaneous projects across different time zones, I realised something: I was very good at <strong>starting things.</strong> I was less good at seeing them through to their full potential.</p>
+
+    <p class="story-p">I've been the hospitality worker on a terrible POS system. The photographer with no idea if their content is performing. The tourist frustrated by a broken workflow. I understand users because <strong>I've been them.</strong></p>
+
+    <p class="story-p">I want to stop being a hired gun and start being a builder. I want to go deep, work on a product I can care about, with a team I can grow with.</p>
+
+    <div class="cta-block">
+      <div class="cta-title">Let's build something that lasts.</div>
+      <p class="cta-sub">Open to APM, Product Ops, Scrum Master & Customer Success roles in tech — Lisbon, hybrid or remote.</p>
+      <a href="mailto:filipa.m.work@gmail.com" class="cta-link">Get in touch →</a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function showTab(id, el) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+  window.scrollTo({ top: document.querySelector('.nav').offsetTop, behavior: 'smooth' });
+}
+
+function toggleExp(el) {
+  el.classList.toggle('open');
+}
+</script>
+</body>
+</html>
